@@ -2,7 +2,6 @@
 
 #include <mc_control/mc_controller.h>
 
-
 #include "api.h"
 
 struct TorqueTest_DLLAPI TorqueTest : public mc_control::MCController
@@ -12,4 +11,6 @@ struct TorqueTest_DLLAPI TorqueTest : public mc_control::MCController
   bool run() override;
 
   void reset(const mc_control::ControllerResetData & reset_data) override;
+  std::unique_ptr<mc_solver::ContactConstraint> contactConstraintTest;
+  std::unique_ptr<mc_solver::DynamicsConstraint> dynamicConstraintTest;
 };
